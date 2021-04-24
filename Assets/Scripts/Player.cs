@@ -7,17 +7,29 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] float movementSpeed = 10f;
+    [SerializeField] GameObject laserPrefab;
+    [SerializeField] float projectileSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+        Fire();
+    }
+
+    public void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+        }
     }
 
     private void Movement()
