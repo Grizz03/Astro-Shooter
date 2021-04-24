@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
         Fire();
     }
 
+    //firing method with constant fire coroutine
     public void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //constant fire
     IEnumerator FireContinuously()
     {
         while (true)
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //movement obviously
     private void Movement()
     {   //create movement and fps independent
         float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
